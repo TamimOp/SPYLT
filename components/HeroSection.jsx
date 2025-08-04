@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { useMediaQuery } from "react-responsive";
 import { ScrollTrigger } from "gsap/all";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -71,13 +72,18 @@ const HeroSection = () => {
         {isTablet ? (
           <>
             {isMobile && (
-              <img
+              <Image
                 src="/images/hero-bg.png"
-                className="absolute bottom-40 size-full object-cover"
+                alt="Hero background"
+                fill
+                className="absolute bottom-40 object-cover"
               />
             )}
-            <img
+            <Image
               src="/images/hero-img.png"
+              alt="Hero image"
+              width={800}
+              height={600}
               className="absolute bottom-0 left-1/2 -translate-x-1/2 object-auto"
             />
           </>
