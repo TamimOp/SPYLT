@@ -1,18 +1,34 @@
+"use client";
 import HeroSection from "@/sections/HeroSection";
 import Navbar from "@/components/Navbar";
 import React from "react";
 import MessageSection from "@/sections/MessageSection";
 import FlavorSection from "@/sections/FlavorSection";
+import { ScrollSmoother, ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
-const page = () => {
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+const Page = () => {
+  useGSAP(() => {
+    ScrollSmoother.create({
+      smooth: 3,
+      effects: true,
+    });
+  });
   return (
     <main>
       <Navbar />
-      <HeroSection />
-      <MessageSection />
-      <FlavorSection />
+      <div id="smooth-wrapper">
+        <div id="smooth-content">
+          <HeroSection />
+          <MessageSection />
+          <FlavorSection />
+        </div>
+      </div>
     </main>
   );
 };
 
-export default page;
+export default Page;
