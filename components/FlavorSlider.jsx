@@ -78,7 +78,7 @@ const FlavorSlider = () => {
               alt=""
               width={800}
               height={600}
-              className="absolute bottom-0"
+              className="absolute bottom-0 w-full h-auto object-contain"
             />
 
             <Image
@@ -86,7 +86,7 @@ const FlavorSlider = () => {
               alt=""
               width={400}
               height={600}
-              className="drinks"
+              className="drinks object-contain"
             />
 
             <Image
@@ -94,7 +94,7 @@ const FlavorSlider = () => {
               alt=""
               width={600}
               height={400}
-              className="elements"
+              className="elements object-contain"
             />
 
             <h1>{flavor.name}</h1>
