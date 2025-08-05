@@ -5,10 +5,13 @@ import { SplitText } from "gsap/all";
 import { useMediaQuery } from "react-responsive";
 import { ScrollTrigger } from "gsap/all";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection = () => {
+  const [mounted, setMounted] = useState(false);
+
   const isMobile = useMediaQuery({
     query: "(max-width: 768px)",
   });
@@ -17,7 +20,13 @@ const HeroSection = () => {
     query: "(max-width: 1024px)",
   });
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   useGSAP(() => {
+    if (!mounted) return;
+
     const titleSplit = SplitText.create(".hero-title", {
       type: "chars",
     });
@@ -64,7 +73,47 @@ const HeroSection = () => {
       yPercent: 30,
       ease: "power1.inOut",
     });
-  });
+  }, [mounted]);
+
+  if (!mounted) {
+    return (
+      <section className="bg-main-bg">
+        <div className="hero-container">
+          <video
+            src="/videos/hero-bg.mp4"
+            autoPlay
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="hero-content opacity-0">
+            <div className="overflow-hidden">
+              <h1 className="hero-title">Freaking Delicious</h1>
+            </div>
+            <div
+              style={{
+                clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
+              }}
+              className="hero-text-scroll"
+            >
+              <div className="hero-subtitle">
+                <h1>Protein + Caffine </h1>
+              </div>
+            </div>
+
+            <h2>
+              Live life to the fullest with SPYLT: Shatter boredom and embrace
+              your inner kid with every deliciously smooth chug.
+            </h2>
+
+            <div className="hero-button">
+              <p>Chug a SPYLT</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="bg-main-bg">
@@ -112,7 +161,7 @@ const HeroSection = () => {
           </div>
 
           <h2>
-            Live life to the fullest  with SPYLT: Shatter boredom and embrace
+            Live life to the fullest with SPYLT: Shatter boredom and embrace
             your inner kid with every deliciously smooth chug.
           </h2>
 
