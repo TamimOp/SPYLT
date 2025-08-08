@@ -59,6 +59,53 @@ const HeroSection = () => {
         "-=0.5"
       );
 
+    // Magnetic button effect
+    const button = document.querySelector(".hero-button");
+    const buttonText = document.querySelector(".hero-button p");
+
+    if (button && buttonText) {
+      button.addEventListener("mouseenter", () => {
+        gsap.to(button, {
+          scale: 1.05,
+          duration: 0.3,
+          ease: "power2.out",
+        });
+        gsap.to(buttonText, {
+          y: -2,
+          duration: 0.3,
+          ease: "power2.out",
+        });
+      });
+
+      button.addEventListener("mouseleave", () => {
+        gsap.to(button, {
+          scale: 1,
+          x: 0,
+          y: 0,
+          duration: 0.5,
+          ease: "elastic.out(1, 0.3)",
+        });
+        gsap.to(buttonText, {
+          y: 0,
+          duration: 0.3,
+          ease: "power2.out",
+        });
+      });
+
+      button.addEventListener("mousemove", (e) => {
+        const rect = button.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+
+        gsap.to(button, {
+          x: x * 0.2,
+          y: y * 0.2,
+          duration: 0.3,
+          ease: "power2.out",
+        });
+      });
+    }
+
     const heroTl = gsap.timeline({
       scrollTrigger: {
         trigger: ".hero-container",
