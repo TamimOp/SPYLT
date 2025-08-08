@@ -18,7 +18,7 @@ const FooterSection = () => {
       />
 
       <div className="2xl:h-[110dvh] relative md:pt-[20vh] pt-[10vh]">
-        <div className="overflow-hidden z-10">
+        <div className="overflow-hidden relative z-10">
           <h1 className="general-title text-center text-milk py-5">
             #CHUGRESPONSIBLY
           </h1>
@@ -56,7 +56,7 @@ const FooterSection = () => {
         </div>
 
         <div className="mt-40 md:px-10 px-5 flex gap-10 md:flex-row flex-col justify-between text-milk font-paragraph md:text-lg font-medium">
-          <div className="flex items-center md:gap-16 gap-5">
+          <div className="flex items-center md:gap-16 gap-5 z-10">
             <div>
               <p>SPYLT Flavors</p>
             </div>
