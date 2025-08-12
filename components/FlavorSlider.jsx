@@ -75,7 +75,7 @@ const FlavorSlider = () => {
           >
             <Image
               src={`/images/${flavor.color}-bg.svg`}
-              alt=""
+              alt="drink-bg"
               width={800}
               height={600}
               className="absolute bottom-0 w-full h-auto object-contain"
@@ -83,10 +83,10 @@ const FlavorSlider = () => {
 
             <Image
               src={`/images/${flavor.color}-drink.webp`}
-              alt=""
+              alt="drink"
               width={400}
               height={600}
-              className="drinks object-contain"
+              className="drinks absolute bottom-0 left-1/2 transform -translate-x-1/2 h-full w-auto object-contain object-bottom"
             />
 
             <Image
