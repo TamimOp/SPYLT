@@ -241,7 +241,7 @@ body::-webkit-scrollbar {
     }
 
     h1 {
-      @apply uppercase 2xl:text-[17vw] text-[19vw] leading-[105%] tracking-[-.4vw] ml-[2vw] font-bold;
+      @apply uppercase 2xl:text-[16.5vw] text-[19vw] leading-[105%] tracking-[-.4vw] ml-[2vw] font-bold;
     }
   }
 
